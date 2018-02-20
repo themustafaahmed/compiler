@@ -1,0 +1,19 @@
+
+
+println("Include File");
+
+
+function qwqwqz(){
+
+println("function");
+a=1;
+b=2;
+
+if(a<b){
+    println(-1+2,"a<b");
+    
+}else{
+    println(1+2,"a>b");
+}
+}
+qwqwqz();

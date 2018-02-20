@@ -1,0 +1,141 @@
+include("scripts/include.cscs");
+
+
+function fun(){
+    i=0;
+    
+    while(i<4){
+    
+    println(i);
+    i++;
+    
+    if(i== 3){
+    
+     break;
+     
+      }
+    }   
+ }
+    
+ println(fun());
+ 
+ 
+ function funk(){
+i = 0; b = 0;
+
+while(i < 13)
+{
+  b += (i*4 - 1);
+  
+  i++;
+  
+  if ( i >= 4) {
+    println("in if, i==", i, ", break");
+    
+    break;
+    
+  } else {
+  
+    println("in else, i==", i, ", continue");
+    
+    continue;
+  }
+  println("this is never reached");
+}
+
+ }
+
+ funk();
+
+ a="red";
+
+//write(size(a));
+
+wwq = {2,2,3,4,5};
+deyi = 0;
+
+while(deyi < size(wwq)){
+
+deyi++;
+
+println(wwq(1));
+
+}
+
+qqq={3,3,3};
+
+println(qqq); 
+
+
+function q(a,b,c,d,f,j,k,m,q){
+
+    a+b+c+d+f+j+k+m+q;
+
+}
+
+println(q(2,2,1,1,1,1,1,1,1));
+
+q1 = 1;
+q2 =1;
+if(q1 == q2){
+
+println(2*2^2);
+}
+
+
+ако(q1==q2){
+
+печатля(":)");
+
+}
+
+function qw(){
+a=3;
+b=5;
+if(a < b){
+return a*b
+}
+}
+
+a=1;
+a +=3;
+
+println(a);
+
+println(qw());
+
+qwqwqz()
+
+function qland(int a, int b){
+
+
+return a+b;
+
+
+}
+
+println(qland(
+a="a",
+b="b"));
+
+
+a=10;
+b=10;
+if(a>=b){
+a-=2;
+print(a,":D");
+}
+
+
+a=1;
+
+a &= 2; // &= , |= testing and work!
+
+println(a);
+
+qzz=1;
+if(qzz == 2){
+
+println("!!!!!");
+
+}
