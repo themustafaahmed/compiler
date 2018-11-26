@@ -1,0 +1,10 @@
+﻿http://instagram.eurocoders.com 
+хост: 78.130.159.231
+порт: 33654 (sftp)
+юзър: instagram
+парола: g66j84tkZMDPxQQy
+
+
+phpMyAdmin - http://78.130.159.231/pxDgN0jdmsin/
+
+instagram - instagram13

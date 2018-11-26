@@ -1,0 +1,44 @@
+ $check = $this->memcached->get("check" . $videoID);
+            if (!$check) {
+                $_check = $this->dbh->fetchAll("SELECT SQL_NO_CACHE * FROM videos WHERE videoID IN($ids)");
+                $this->memcached->set("check" . $videoID, $_check, 86400);
+                $check = $_check;
+            }
+
+            foreach ($related as $__related) {
+                $item = $youtubeFetch->getVideoInfoApi($__related['id'], $apiKey, false);
+
+                $t = false;
+                foreach ($check as $__check){
+                    if($__check['videoID'] == $__related["id"]){
+                        $t = true;
+                    }
+                }
+                if($t == false){
+                    $this->dbh->insert("videos", array(
+                        'start' => 0,
+                        'end' => 0,
+                        'views' => 0,
+                        'uploaderAvatar' => $item['uploaderAvatar'],
+                        'duration' => $item['duration'],
+                        'videoID' => $item['id'],
+                        'title' => $item['title'],
+                        'uploader' => $item['uploader'],
+                        'upload_date' => $item['upload_date']
+                    ));
+                }
+                
+//                if (!array_search($item['id'], array_column($check, "videoID"))) {
+//                    $this->dbh->insert("videos", array(
+//                        'start' => 0,
+//                        'end' => 0,
+//                        'views' => 0,
+//                        'uploaderAvatar' => $item['uploaderAvatar'],
+//                        'duration' => $item['duration'],
+//                        'videoID' => $item['id'],
+//                        'title' => $item['title'],
+//                        'uploader' => $item['uploader'],
+//                        'upload_date' => $item['upload_date']
+//                    ));
+//                }
+                $this->dbh->insert('related', array('main_id' => $videoID, 'video_id' => $__related['id']));

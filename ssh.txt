@@ -1,0 +1,3 @@
+ssh repeat@78.130.159.231 -p 33654
+NMaT3XqRNRcUL9nJ
+/usr/bin/php crons/fetchRelated.php

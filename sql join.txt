@@ -1,0 +1,5 @@
+SELECT images.path,images.id,images.created_at,images.user_id FROM users INNER JOIN images ON images.user_id = users.id WHERE user_id =2
+SELECT videos.* FROM videos INNER JOIN related ON related.video_id = videos.videoID  WHERE main_id = "-0A9CzPNVhs"
+
+
+getcwd();

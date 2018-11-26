@@ -1,0 +1,63 @@
+$matches = '';
+    $variables = array();
+    $pos = 0;
+    $reg = '#';
+    $nextText = '';
+
+    preg_match_all('#\{\w+\}#', $pattern, $matches, PREG_OFFSET_CAPTURE | PREG_SET_ORDER);
+
+    foreach ($matches as $match) 
+    {
+        $varName = substr($match[0][0], 1, -1);
+        $precedingText = substr($pattern, $pos, $match[0][1] - $pos);
+        $pos = $match[0][1] + strlen($match[0][0]);
+        $nxt = $pos - strlen($pattern);
+        if($nxt == 0) $nxt = strlen($pattern); 
+        $nextText = substr($pattern, $nxt);
+        //$precedingText = substr($precedingText, 1, -1);
+        $precSegments = explode('/', $precedingText);
+        $precSegments = array_splice($precSegments, 1);
+        //$temp = 5; 
+        echo 'nxt ' . $nextText . '<><br>'; 
+        if(strlen($precedingText) > 1)
+        {       
+            foreach($precSegments as $key => $value)
+            {   
+                $reg .= '\/';
+                $reg .= $value; 
+            }
+
+            $reg .= '{?([^\/}]+)}?';  
+        }
+        else
+        {
+            $reg .= '{?([^\/}]+)}?';
+        }
+
+        $nextText = str_replace('/', '\/', $nextText);
+
+        if(is_numeric($varName)) {
+            throw new Exception('Argument cannot be a number');
+        }
+
+        if (in_array($varName, $variables)) {
+            throw new \LogicException(sprintf('More then one occurrence of variable name "%s".', $varName));
+        }
+
+        $variables[] = $varName;    
+    }
+
+    if(count($matches) < 1)
+    {
+        $reg .= str_replace('/', '\/', $pattern);
+    }
+
+    $reg = $reg . $nextText;
+    $reg .= '#';
+
+    if($pattern == '/')
+    {
+        $reg = '#^[\/]+$#';
+    }
+
+    return ['variables' => $variables, 'regex' => $reg];

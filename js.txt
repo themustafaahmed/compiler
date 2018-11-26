@@ -1,0 +1,19 @@
+// MY
+function ItunesDeals(loop) {
+    var check = Interval(loop);
+    if(check === 1 && loop != 0){
+        LoadItunesDeals();
+	}
+};
+
+function Interval(size) {
+    return ((size % 10 === 0) ? 1 : 0);
+}
+
+function LoadItunesDeals() {
+    var id = $("#itunes_deals").attr('data-id');
+    $('.cd-popup.'+id).addClass('is-visible');
+}
+
+var countLoop
+ItunesDeals(countLoop);
