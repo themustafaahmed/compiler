@@ -1,0 +1,10 @@
+﻿Sftp:
+host: 78.130.159.231
+port: 33654
+username: repeat
+password: NMaT3XqRNRcUL9nJ
+
+phpMyAdmin:
+http://78.130.159.231/pxDgN0jdmsin/
+repeat
+repeat13

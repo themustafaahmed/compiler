@@ -1,0 +1,29 @@
+ private function getViews($video_id)
+    {
+        $client_ip = $this->getRealIp();
+
+        $cache = $this->memcached->get('view_' . $video_id . $client_ip);
+
+        if (empty($cache)) {
+            // endOfDay - the current time
+            $expireAt = strtotime('23:59:59') - time();
+            if ($expireAt > 0) {
+                $this->dbh->Execute("UPDATE videos SET views = views + 1 WHERE video_id = '" . $video_id . "'");
+                $this->memcached->set('view_' . $video_id . $client_ip, $expireAt);
+            }
+        }
+    }
+
+    private function getRealIp()
+    {
+        if (!empty($_SERVER['HTTP_CLIENT_IP'])) //check ip from share internet
+        {
+            $ip = $_SERVER['HTTP_CLIENT_IP'];
+        } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) //to check ip is pass from proxy
+        {
+            $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+        } else {
+            $ip = $_SERVER['REMOTE_ADDR'];
+        }
+        return $ip;
+    }

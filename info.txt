@@ -1,0 +1,33 @@
+﻿Поща:
+username: mustafa@eurocoders.com
+password: mF2dFZAggRGg58Hg
+web: http://mail.eurocoders.com
+
+Виртуален хост на Дев сървър:
+http://mustafa.eurocoders.com
+ssh/sftp към виртуалния хост:
+host: mustafa.eurocoders.com
+user: mustafa
+pass: Ld27Rn
+port: 33654
+
+Git:
+http://gitlab.eurocoders.com:8888
+user: mustafa
+password: виж си емайла
+
+PHPMyAdmin:
+phpmyadmin: http://mustafa.eurocoders.com/pxDgN0jdmsin/
+username: mustafa
+password: D8iwgb14a2iZj23y
+hostname: localhost
+
+Dashboard Projects:
+https://projects.eurocoders.com/
+username: mustafa@eurocoders.com
+pass: 
+
+Репорти/Отчети:
+nasko@eurocoders.com
+alexander@eurocoders.com
+mariyan@eurocoders.coms

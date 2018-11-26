@@ -1,0 +1,1 @@
+echo "\033[33m" . "Video number: " . $printer . "\033[0m" . "\n";
