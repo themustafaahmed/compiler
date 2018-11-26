@@ -1,0 +1,7 @@
+crontab -e
+i
+
+*/5 * * * * /usr/bin/php crons/testCron.php >> crons/log/log.txt
+
+esc
+:wq

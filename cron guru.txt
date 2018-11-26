@@ -1,0 +1,9 @@
+10 * * * * /usr/bin/php crons/testCron.php >/dev/null 2>&1
+
+2 * * * * /usr/bin/php crons/testCron.php > var/wwwprefix/projects/repeat.eurocoders.com/crons/log.txt
+
+
+<?php
+    if(!($PID = shell_exec("pgrep 'php /home/rizwan/PHP-workspace/mgstore/testcron.php'")))
+        echo 'Process is running with PID ' . $PID . '.';
+?>
